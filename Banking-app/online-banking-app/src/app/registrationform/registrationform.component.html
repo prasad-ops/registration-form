@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+  <div class="jumbotron">
+  <div class="container center_div">
+
+    <div align="center"> 
+        
+            <h2>SignUp</h2> 
+            
+            
+            <div class="input-icons" [class.has-error]="username.invalid && username.touched"> 
+                <i class="fa fa-user-circle icon"> 
+              </i> 
+                <input class="input-field" id="unameregister" required type="text" placeholder="Username" [(ngModel)]="user.username" #username="ngModel">
+                <span style="color: red;" class="help-block" *ngIf=" username.invalid && username.touched">username is required</span> 
+            </div> 
+
+
+            <div class="input-icons" [class.has-error]=" firstname.invalid && firstname.touched"> 
+                <i class="fa fa-user icon"> 
+              </i> 
+                <input class="input-field1" required
+                       type="text" 
+                       placeholder="First Name"
+                       [(ngModel)]="user.firstname" #firstname="ngModel">
+                       <span style="color: red;" class="help-block" *ngIf=" firstname.invalid && firstname.touched">Firstname is required</span> 
+            </div> 
+
+  
+
+            <div class="input-icons" [class.has-error]=" lastname.invalid && lastname.touched"> 
+                <i class="fa fa-user icon"> 
+              </i> 
+                <input class="input-field" required
+                       type="text" 
+                       placeholder="Last Name"
+                       [(ngModel)]="user.lastname" #lastname="ngModel"> 
+                       <span style="color: red;" class="help-block" *ngIf="  lastname.invalid && lastname.touched">Lastname is required</span> 
+            </div> 
+
+
+            <div class="form-group" [class.has-error]="email.invalid && email.touched">
+            <div class="input-icons"> 
+                <i class="fa fa-envelope icon"> 
+              </i> 
+                <input class="input-field" required email
+                       type="text"
+                       placeholder="Email"
+                       #email="ngModel"
+                       [(ngModel)]="user.email"> 
+                <span style="color: red;" class="help-block" *ngIf=" email.errors?.required && email.touched">Email is required</span>
+                <span style="color: red;" class="help-block" *ngIf=" email.errors?.email && email.touched">Email is invalid</span>
+                
+            </div> 
+          </div>
+
+
+            <div class="input-icons" [class.has-error]="phonenumber.invalid && phonenumber.touched"> 
+                <i class="fa fa-phone icon"> 
+              </i> 
+                <input class="input-field" required pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$"
+                       type="text"
+                       placeholder="Phone number"
+                       [(ngModel)]="user.phonenumber" #phonenumber="ngModel"> 
+                       <span style="color: red;" class="help-block" *ngIf="phonenumber.errors?.required && phonenumber.touched">Phone number is required</span>
+                       <span style="color: red;" class="help-block" *ngIf="phonenumber.errors?.pattern && phonenumber.touched">Phone number is invalid</span>
+                
+                
+            </div> 
+  
+            <div class="input-icons" [class.has-error]="password.invalid && password.touched"> 
+                <i class="fa fa-key icon"> 
+              </i> 
+              
+                <input class="input-field" required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                       type="password"
+                       placeholder="Password"
+                       [(ngModel)]="user.password" #password="ngModel"> 
+                       <span style="color: red;" class="help-block" *ngIf="password.errors?.required && password.touched">Password should not be empty</span>
+                       <span style="color: red;" class="help-block" *ngIf="password.errors?.pattern && password.touched">Password must contains Minimum eight characters, at least one letter, one number and one special character</span>
+            </div> 
+
+            <div class="input-icons" > 
+                <i class="fa fa-key icon"> 
+              </i> 
+                <input  class="input-field" 
+                       type="password"
+                       placeholder="Confirm Password"> 
+               
+                       
+            </div> 
+            
+            
+            
+          
+            <div>
+                <button (click)="register()" class ="btn btn-primary" id="=signup"  >REGISTER</button>
+            </div>
+          
+    </div> 
+  </div>
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJ///////bHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+    
+</body>
+</html>
